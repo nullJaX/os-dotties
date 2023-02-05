@@ -1,0 +1,5 @@
+{% macro file_view(filename, file) -%}
+<div class="card file-card"><div class="card-content"><div class="center-align"><span class="filename">{{filename}}</span><div class="black" style="width: 100%;"><pre class="bash left-align">{% for line in file -%}
+{{line}}
+{% endfor -%}</pre></div></div></div></div>
+{%- endmacro -%}

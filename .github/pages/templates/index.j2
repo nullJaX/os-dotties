@@ -1,0 +1,16 @@
+{% from 'file.j2' import file_view %}
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><title>os-dotties</title>
+<style>
+pre.bash { background-color: black; color: white; line-height: normal; font-size: medium; display: inline-block; margin-top: 10px; margin-bottom: 0; font-family: Ubuntu Mono Regular,Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;}
+.card {border-radius: 10px;}
+.distro-card {background-color: #0d1117;border-color: #21262d;}
+.distro-card .card-content {padding-bottom: inherit;}
+.file-card {background-color: #21262d;border-color: #21262d; border-bottom-left-radius: 0; border-bottom-right-radius: 0;}
+.file-card .card-content {padding: 0;}
+.filename {margin-left: 10px; margin-right: 10px;}
+</style>
+</head><body class="grey-text text-lighten-5" style="background-color: #010409;">
+<header><div class="navbar-fixed"><nav style="background-color: #161b22;"><div class="nav-wrapper"><div class="container"><span class="brand-logo center"><a href="https://github.com/nullJaX/os-dotties">os-dotties <i class="fa-brands fa-github"></i></a></span></div></div></nav></div></header>
+<main><div class="container">{% for name, files in distros.items() %}<div class="card z-depth-5 distro-card"><div class="card-content"><span class="card-title"><b>{{name}}</b></span><div class="row">{% for filename, file in files %}<div class="col">{{file_view(filename, file)}}</div>{%- endfor -%}</div></div></div>{%- endfor -%}</div></main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script></body></html>
